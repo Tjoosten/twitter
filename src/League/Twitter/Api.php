@@ -648,7 +648,7 @@ class Api
             function ($part) use ($dummy_link) {
 
                 // If its not a URL, carry on with whatever it is
-                if (!(strpos($part, 'http://') || strpos($part, 'https://'))) {
+                if (!(strpos($part, 'http://') or strpos($part, 'https://'))) {
                     return $part;
                 } else {
                     // It is a URL, return the dummy link
@@ -720,7 +720,7 @@ class Api
         if ($in_reply_to_status_id) {
             $data['in_reply_to_status_id'] = $in_reply_to_status_id;
         }
-        if (!(is_null($latitude) || is_null($longitude))) {
+        if (!(is_null($latitude) or is_null($longitude))) {
             $data['lat'] = (string)$latitude;
             $data['long'] = (string)$longitude;
         }
@@ -799,7 +799,7 @@ class Api
         if ($in_reply_to_status_id) {
             $data['in_reply_to_status_id'] = $in_reply_to_status_id;
         }
-        if (!(is_null($latitude) || is_null($longitude))) {
+        if (!(is_null($latitude) or is_null($longitude))) {
             $data['lat'] = $latitude;
             $data['long'] = $longitude;
         }
@@ -1096,11 +1096,11 @@ class Api
     {
         extract($args);
 
-        isset($user_id) || $user_id = null;
-        isset($screen_name) || $screen_name = null;
-        isset($cursor) || $cursor = -1;
-        isset($skip_status) || $skip_status = false;
-        isset($include_user_entities) || $include_user_entities = false;
+        isset($user_id) or $user_id = null;
+        isset($screen_name) or $screen_name = null;
+        isset($cursor) or $cursor = -1;
+        isset($skip_status) or $skip_status = false;
+        isset($include_user_entities) or $include_user_entities = false;
 
         if (!$this->oauth_consumer) {
             throw new \Exception("League\Twitter\Api instance must be authenticated");
@@ -1140,7 +1140,7 @@ class Api
             $result += $result;
 
             if (array_key_exists('next_cursor', $data)) {
-                if ($data['next_cursor'] == 0 || $data['next_cursor'] == $data['previous_cursor']) {
+                if ($data['next_cursor'] == 0 or $data['next_cursor'] == $data['previous_cursor']) {
                     break;
                 } else {
                     $cursor = $data['next_cursor'];
@@ -1205,7 +1205,7 @@ class Api
             }
 
             if (array_key_exists('next_cursor', $data)) {
-                if ($data['next_cursor'] == 0 || $data['next_cursor'] == $data['previous_cursor']) {
+                if ($data['next_cursor'] == 0 or $data['next_cursor'] == $data['previous_cursor']) {
                     break;
                 } else {
                     $cursor = $data['next_cursor'];
@@ -1272,7 +1272,7 @@ class Api
             }
 
             if (array_key_exists('next_cursor', $data)) {
-                if ($data['next_cursor'] == 0 || $data['next_cursor'] == $data['previous_cursor']) {
+                if ($data['next_cursor'] == 0 or $data['next_cursor'] == $data['previous_cursor']) {
                     break;
                 } else {
                     $cursor = $data['next_cursor'];
@@ -1346,7 +1346,7 @@ class Api
             $result += $result;
 
             if (isset($data['next_cursor'])) {
-                if ($data['next_cursor'] == 0 || $data['next_cursor'] === $data['previous_cursor']) {
+                if ($data['next_cursor'] == 0 or $data['next_cursor'] === $data['previous_cursor']) {
                     break;
                 } else {
                     $cursor = $data['next_cursor'];
