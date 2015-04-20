@@ -107,8 +107,8 @@ class Api
         $this->setAccessTokenSecret($access_token_secret);
         $this->oauth_consumer = null;
 
-        if (!is_null($consumer_key) and !is_null($consumer_secret) and
-            !is_null($access_token_key) and !is_null($access_token_secret)
+        if (!is_null($consumer_key) && !is_null($consumer_secret) &&
+            !is_null($access_token_key) && !is_null($access_token_secret)
         ) {
 
             $oauth = new OauthPlugin(
@@ -225,7 +225,7 @@ class Api
         if ($locale) {
             $parameters['locale'] = $locale;
         }
-        if (is_null($term) and is_null($geocode)) {
+        if (is_null($term) && is_null($geocode)) {
             return array();
         }
         if (!is_null($term)) {
@@ -1383,7 +1383,7 @@ class Api
             throw new \Exception("The League\Twitter\Api instance must be authenticated.");
         }
 
-        if (!$user_id and !$screen_name and !$users) {
+        if (!$user_id && !$screen_name && !$users) {
             throw new \Exception("Specify at least one of user_id, screen_name, or users.");
         }
 
@@ -2396,7 +2396,7 @@ class Api
         }
 
         // Add any additional query parameters to the query string
-        if ($extra_params and count($extra_params) > 0) {
+        if ($extra_params && count($extra_params) > 0) {
             $extra_query = $this->encodeParameters($extra_params);
 
             // Add it to the existing query
